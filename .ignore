@@ -1,0 +1,30 @@
+#compiled class
+*.class
+#log file
+*.log
+#blueJ files
+.ctxt
+#Mobile Tools for J2ME
+.mtj.tmp/
+
+#Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+
+**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+!/.mvn/wrapper/maven-wrapper.jar
