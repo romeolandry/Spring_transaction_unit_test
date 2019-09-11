@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="https://www.springframework.org/schema/beans"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="https://www.springframework.org/schema/jdbc"
+	xmlns:tx="https://www.springframework.org/schema/tx"
+	xmlns:context="https://www.springframework.org/schema/context"
+	xsi:schemaLocation="https://www.springframework.org/schema/jdbc 
+		https://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		https://www.springframework.org/schema/beans 
+		https://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		https://www.springframework.org/schema/context 
+		https://www.springframework.org/schema/context/spring-context-4.0.xsd
+		https://www.springframework.org/schema/tx 
+		https://www.springframework.org/schema/tx/spring-tx-4.0.xsd">	
+	<context:component-scan base-package="com.spb"/>
+	
+	<tx:annotation-driven/>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<jdbc:embedded-database type="H2" id="dataSource">
+		<jdbc:script location="classpath:/schema.sql"/>
+		<jdbc:script location="classpath:/data.sql"/>
+	</jdbc:embedded-database>
+		
+</beans>

@@ -18,10 +18,10 @@ public class Person {
 		this.firstName = firstname; 
 	}
 	public String getLastName() {
-		return firstName;
+		return lastName;
 	}
 	public void setLastName(String lastname) {
-		this.firstName = lastname; 
+		this.lastName = lastname; 
 	}
 	
 
